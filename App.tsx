@@ -15,10 +15,12 @@ function App() {
 
   return (
     <View style={styles.container}>
-      <NavigationContainer>
-        <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-        <Navigation />
-      </NavigationContainer>
+      <SafeAreaProvider>
+        <NavigationContainer>
+          <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+          <Navigation />
+        </NavigationContainer>
+      </SafeAreaProvider>
     </View>
   );
 }

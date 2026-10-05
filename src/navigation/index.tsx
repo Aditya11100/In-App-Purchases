@@ -7,7 +7,11 @@ const StackNavigator = createStackNavigator();
 
 const Navigation = () => {
   return (
-    <StackNavigator.Navigator>
+    <StackNavigator.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
       <StackNavigator.Screen component={Home} name={'Home'} />
     </StackNavigator.Navigator>
   );
