@@ -56,11 +56,15 @@ const Home = () => {
     console.log('subscriptions state:', subscriptions);
   }, [subscriptions]);
 
-  const activePurchase = availablePurchases.find(
-    p =>
-      subscriptionIds.includes(p.productId) &&
-      (!p?.expirationDateIOS || p?.expirationDateIOS > Date.now()),
-  );
+  const activePurchase = availablePurchases
+    .filter(
+      p =>
+        subscriptionIds.includes(p.productId) &&
+        (!p?.expirationDateIOS || p?.expirationDateIOS > Date.now()),
+    )
+    .sort(
+      (a, b) => (b?.expirationDateIOS ?? 0) - (a?.expirationDateIOS ?? 0),
+    )[0];
 
   console.log('activePurchase', activePurchase);
 
